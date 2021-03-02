@@ -122,11 +122,14 @@ void octal(int decimal){
 }
 
 void main(){
+    char dig[10];
     int num;
     
-    printf("Numero a ser convertido: ");
-    scanf("%d", &num);
-
+    printf("\nNumero a ser convertido: ");
+    fflush(stdin);
+	gets(dig);
+    
+    num = atoi(dig);
     // Chama a função binary() para alocar memoria, liberar memoria e mostrar o resultado da conversão para binário.
     printf("\nConvertendo para binario...\n");
     binary(num);
