@@ -6,6 +6,7 @@ Binário e Octal.
 *******************************************************************************/
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 // Structs para o Binário.
 typedef struct Binario {
@@ -86,6 +87,7 @@ void binary(int decimal){
         free(ptr);
     }
 
+    sleep(5);
     printf("\n");
 }
 
@@ -119,22 +121,31 @@ void octal(int decimal){
         // ptr->prox = NULL;
         free(ptr);
     }
+
+    sleep(5);
+    printf("\n");
 }
 
 void main(){
     char dig[10];
-    int num;
+    unsigned int num;
+    char op;
     
-    printf("\nNumero a ser convertido: ");
-    fflush(stdin);
-	gets(dig);
-    
-    num = atoi(dig);
-    // Chama a função binary() para alocar memoria, liberar memoria e mostrar o resultado da conversão para binário.
-    printf("\nConvertendo para binario...\n");
-    binary(num);
+    while(op != '2'){
+        printf("\nNumero a ser convertido: ");
+        fflush(stdin);
+        gets(dig);
+        
+        num = atoi(dig);
+        // Chama a função binary() para alocar memoria, liberar memoria e mostrar o resultado da conversão para binário.
+        printf("\nConvertendo para binario...\n");
+        binary(num);
 
-    // Chama a função octal() para alocar memoria, liberar memoria e mostrar o resultado da conversão para octal.
-    printf("\nConvertendo para octal...\n");
-    octal(num);
+        // Chama a função octal() para alocar memoria, liberar memoria e mostrar o resultado da conversão para octal.
+        printf("\nConvertendo para octal...\n");
+        octal(num);
+
+        printf("\nDeseja continuar? 1- SIM || 2-NAO\n");
+        op = getch();
+    }
 }
